@@ -18,6 +18,7 @@ public class BreweryRequesterService {
     private RestTemplate restTemplate;
 
     private String URL_BASE = "https://api.openbrewerydb.org/breweries/";
+    private String URL_BY_NAME = "https://api.openbrewerydb.org/breweries?by_name=";
 
     public List<Brewery> getBreweries ()
     {
@@ -53,5 +54,22 @@ public class BreweryRequesterService {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public List<Brewery> getBreweryByName(String name) {
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+            headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
+            HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+
+            ResponseEntity<Brewery[]> breweries = restTemplate.exchange(this.URL_BY_NAME + name, HttpMethod.GET, entity, Brewery[].class);
+
+            return Arrays.asList(breweries.getBody());
+        } catch (Exception ex) {
+            System.out.println("An Error has been occurred.");
+            ex.printStackTrace();
+            return null;
+        }
     }
 }
