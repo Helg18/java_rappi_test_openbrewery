@@ -1,8 +1,9 @@
 package com.ve.henryleon.rappitest.Models;
 
-import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Brewery {
     private Long id;
     private String name;
@@ -17,7 +18,6 @@ public class Brewery {
     private Number phone;
     private String website_url;
     private Date updated_at;
-    private Arrays tag_list;
 
     public Long getId() {
         return id;
@@ -123,14 +123,6 @@ public class Brewery {
         this.updated_at = updated_at;
     }
 
-    public Arrays getTag_list() {
-        return tag_list;
-    }
-
-    public void setTag_list(Arrays tag_list) {
-        this.tag_list = tag_list;
-    }
-
     @Override
     public String toString() {
         return "Brewery{" +
@@ -147,7 +139,6 @@ public class Brewery {
                 ", phone=" + phone +
                 ", website_url='" + website_url + '\'' +
                 ", updated_at=" + updated_at +
-                ", tag_list=" + tag_list +
                 '}';
     }
 }
