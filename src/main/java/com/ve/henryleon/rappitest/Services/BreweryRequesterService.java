@@ -47,8 +47,6 @@ public class BreweryRequesterService {
 
             ResponseEntity<Brewery> brewery = restTemplate.exchange(this.URL_BASE + id, HttpMethod.GET, entity, Brewery.class);
 
-            System.out.println(brewery.getBody());
-
             return brewery.getBody();
         } catch (Exception ex) {
             System.out.println("An Error has been occurred.");
