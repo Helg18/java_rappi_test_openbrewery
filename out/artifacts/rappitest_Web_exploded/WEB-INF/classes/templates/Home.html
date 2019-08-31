@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Brewery</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg mb-3">
+    <div class="navbar-brand text-capitalize    ">
+        Breweries, Your main list :)
+    </div>
+</nav>
+<div class="container">
+        <div class="row">
+            <table class="table table-hover-table-striped">
+                <thead>
+                <tr>
+                    <td><b>#</b></td>
+                    <td><b>Brewery Name</b></td>
+                    <td><b>City</b></td>
+                    <td><b>Action</b></td>
+                </tr>
+                </thead>
+                <tr th:each="brewery :${breweries}">
+                    <td th:text="${brewery.id}"></td>
+                    <td th:text="${brewery.name}"></td>
+                    <td th:text="${brewery.city}">
+                    <td><a href="#" class="btn btn-outline-primary">View details</a></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
