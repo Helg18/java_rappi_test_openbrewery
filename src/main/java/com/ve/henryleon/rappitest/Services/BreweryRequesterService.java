@@ -37,7 +37,7 @@ public class BreweryRequesterService {
         }
     }
 
-    public Brewery getBrewerie ( int id )
+    public Brewery getBrewery ( int id )
     {
         try {
             HttpHeaders headers = new HttpHeaders();

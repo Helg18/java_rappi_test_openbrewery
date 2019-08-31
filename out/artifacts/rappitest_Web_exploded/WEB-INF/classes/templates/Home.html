@@ -32,7 +32,7 @@
                     <td th:text="${brewery.id}"></td>
                     <td th:text="${brewery.name}"></td>
                     <td th:text="${brewery.city}">
-                    <td><a href="#" class="btn btn-outline-primary">View details</a></td>
+                    <td><a th:href="@{(${brewery.id})}" class="btn btn-outline-primary">View details</a></td>
                 </tr>
             </table>
         </div>
